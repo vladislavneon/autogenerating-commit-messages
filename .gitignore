@@ -1,1 +1,8 @@
 .DS_Store
+*.log
+*.commit
+*.diff
+*.msg
+*.clean
+*.hash
+/intellij-community
