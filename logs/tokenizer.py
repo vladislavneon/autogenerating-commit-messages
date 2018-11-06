@@ -2,7 +2,7 @@ import re
 import sys
 
 def tokenize(buffer):
-    too_long_diff_threshold = 1000
+    too_long_diff_threshold = 100
     if (len(buffer) > too_long_diff_threshold):
         return '\n'
     res = ''

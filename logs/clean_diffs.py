@@ -6,8 +6,8 @@ with open('test.diff', 'r') as inf:
 
 #print(len(list(filter(lambda s: s == '\n', diffs))))
 
-with open('test.msg.clean', 'w') as msg_file, \
-     open('test.diff.clean', 'w') as diff_file:
+with open('generated_data/test.msg', 'w') as msg_file, \
+     open('generated_data/test.diff', 'w') as diff_file:
     n = len(messages)
     for i in range(n):
         if diffs[i] != '\n':
@@ -22,8 +22,8 @@ with open('train.diff', 'r') as inf:
 
 print(len(list(filter(lambda s: s == '\n', diffs))))
 
-with open('train.msg.clean', 'w') as msg_file, \
-     open('train.diff.clean', 'w') as diff_file:
+with open('generated_data/train.msg', 'w') as msg_file, \
+     open('generated_data/train.diff', 'w') as diff_file:
     n = len(messages)
     for i in range(n):
         if diffs[i] != '\n':
