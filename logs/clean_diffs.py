@@ -1,7 +1,7 @@
-with open('test.msg', 'r') as inf:
+with open('generated_data/test.msg', 'r') as inf:
     messages = list(inf)
 
-with open('test.diff', 'r') as inf:
+with open('generated_data/test.diff', 'r') as inf:
     diffs = list(inf)
 
 #print(len(list(filter(lambda s: s == '\n', diffs))))
@@ -14,10 +14,10 @@ with open('generated_data/test.msg', 'w') as msg_file, \
             msg_file.write(messages[i])
             diff_file.write(diffs[i])
 
-with open('train.msg', 'r') as inf:
+with open('generated_data/train.msg', 'r') as inf:
     messages = list(inf)
 
-with open('train.diff', 'r') as inf:
+with open('generated_data/train.diff', 'r') as inf:
     diffs = list(inf)
 
 print(len(list(filter(lambda s: s == '\n', diffs))))

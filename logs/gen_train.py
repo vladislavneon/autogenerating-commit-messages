@@ -4,13 +4,13 @@ import sys
 from time import time
 from tokenizer import tokenize
 
-begin_date = '2015-07-01 00:00:00'
-end_date   = '2018-07-01 00:00:00'
+begin_date = '2013-05-01 00:00:00'
+end_date   = '2018-05-01 00:00:00'
 
 gt1 = time()
 t1 = time()
 
-with open('train.commit', 'w') as ouf:
+with open('generated_data/train.commit', 'w') as ouf:
     sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date], 
          stdout=ouf,
          cwd='../intellij-community', 
@@ -22,7 +22,7 @@ print('commits are written in {:.3f} s'.format(t2 - t1))
 
 t1 = time()
 
-with open('train.msg', 'w') as ouf:
+with open('generated_data/train.msg', 'w') as ouf:
     sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:%s'], 
          stdout=ouf,
          cwd='../intellij-community', 
@@ -34,11 +34,11 @@ print('messages are written in {:.3f} s'.format(t2 - t1))
 
 t1 = time()
 
-with open('train.diff.log', 'w') as ouf:
-    sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:>>>terminal<<<'], 
-             stdout=ouf,
-             cwd='../intellij-community',
-             text=True)
+# with open('generated_data/train.diff.log', 'w') as ouf:
+#     sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:>>>terminal<<<'], 
+#              stdout=ouf,
+#              cwd='../intellij-community',
+#              text=True)
 
 t2 = time()
 
@@ -47,7 +47,7 @@ print('diffs are written in {:.3f} s'.format(t2 - t1))
 t1 = time()
 
 diff_lines = []
-with open('train.diff.log', 'r', errors='ignore') as inf:
+with open('generated_data/train.diff.log', 'r', errors='ignore') as inf:
     for line in inf:
         diff_lines.append(line)
 
@@ -62,7 +62,7 @@ print('diffs are loaded in {:.3f} s'.format(t2 - t1))
 
 t1 = time()
 
-with open('train.diff', 'w') as ouf:
+with open('generated_data/train.diff', 'w') as ouf:
     buffer = []
     time_cnt = 0
     for line in diff_lines:
