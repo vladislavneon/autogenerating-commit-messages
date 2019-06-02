@@ -13,8 +13,7 @@ t1 = time()
 with open('generated_data/train.commit', 'w') as ouf:
     sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date], 
          stdout=ouf,
-         cwd='../intellij-community', 
-         text=True)
+         cwd='../intellij-community')
 
 t2 = time()
 
@@ -25,8 +24,7 @@ t1 = time()
 with open('generated_data/train.msg', 'w') as ouf:
     sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:%s'], 
          stdout=ouf,
-         cwd='../intellij-community', 
-         text=True)
+         cwd='../intellij-community')
 
 t2 = time()
 
@@ -34,11 +32,10 @@ print('messages are written in {:.3f} s'.format(t2 - t1))
 
 t1 = time()
 
-# with open('generated_data/train.diff.log', 'w') as ouf:
-#     sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:>>>terminal<<<'], 
-#              stdout=ouf,
-#              cwd='../intellij-community',
-#              text=True)
+with open('generated_data/train.diff.log', 'w') as ouf:
+    sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:>>>terminal<<<'], 
+             stdout=ouf,
+             cwd='../intellij-community')
 
 t2 = time()
 

@@ -11,7 +11,7 @@ def tokenize_line(line):
 
 def tokenize(buffer):
     too_long_diff_threshold = 100
-    too_long_line_threshold = 200
+    too_long_line_threshold = 10000
     if (len(buffer) > too_long_diff_threshold):
         return '\n'
     res = ''

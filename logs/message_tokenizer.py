@@ -39,7 +39,7 @@ def tokenize(line):
     line = ' '.join(line.split())
     return line
 
-dataset='data'
+dataset='generated_data'
 
 with open('{dataset:}/test.msg'.format(dataset=dataset), 'r') as inf:
     lines = list(inf)

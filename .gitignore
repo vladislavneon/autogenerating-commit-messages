@@ -8,3 +8,5 @@
 *.tkz
 /intellij-community
 /nngen/*data*
+*/.ipynb_checkpoints
+*/__pycache__

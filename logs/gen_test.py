@@ -5,15 +5,15 @@ from time import time
 from tokenizer import tokenize
 
 begin_date = '2018-05-01 00:00:00'
+end_date = '2018-11-01 00:00:00'
 
 gt1 = time()
 t1 = time()
 
 with open('generated_data/test.commit', 'w') as ouf:
-    sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date], 
+    sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date], 
          stdout=ouf,
-         cwd='../intellij-community', 
-         text=True)
+         cwd='../intellij-community')
 
 t2 = time()
 
@@ -22,10 +22,9 @@ print('commits are written in {:.3f} s'.format(t2 - t1))
 t1 = time()
 
 with open('generated_data/test.msg', 'w') as ouf:
-    sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--pretty=tformat:%s'], 
+    sbpr.run(['git', 'log', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:%s'], 
          stdout=ouf,
-         cwd='../intellij-community', 
-         text=True)
+         cwd='../intellij-community')
 
 t2 = time()
 
@@ -34,10 +33,9 @@ print('messages are written in {:.3f} s'.format(t2 - t1))
 t1 = time()
 
 with open('generated_data/test.diff.log', 'w') as ouf:
-    sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--pretty=tformat:>>>terminal<<<'], 
+    sbpr.run(['git', 'log', '-p', '--no-merges', '--after=' + begin_date, '--before=' + end_date, '--pretty=tformat:>>>terminal<<<'], 
              stdout=ouf,
-             cwd='../intellij-community',
-             text=True)
+             cwd='../intellij-community')
 
 t2 = time()
 

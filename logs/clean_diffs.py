@@ -4,7 +4,7 @@ with open('generated_data/test.msg', 'r') as inf:
 with open('generated_data/test.diff', 'r') as inf:
     diffs = list(inf)
 
-#print(len(list(filter(lambda s: s == '\n', diffs))))
+print(len(list(filter(lambda s: s == '\n', diffs))))
 
 with open('generated_data/test.msg', 'w') as msg_file, \
      open('generated_data/test.diff', 'w') as diff_file:
